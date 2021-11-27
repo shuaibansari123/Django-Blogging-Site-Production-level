@@ -1,0 +1,62 @@
+{% extends 'basic.html' %}
+
+
+
+
+
+{% block title %}test1{% endblock %}
+
+{% block css %}<Style>
+   
+</Style>{% endblock %}
+
+
+{% block body %}
+
+
+
+<h1>form - user creationform </h1>
+
+<form method="POST" >
+    {% csrf_token %}
+    
+    <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="First name" name="myfirst_name" aria-label="First name">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Last name" name="mylast_name" aria-label="Last name">
+        </div>
+
+
+        <div class="col">
+            <input type="email" class="form-control" placeholder="Email Address" name="myemail" aria-label="First name">
+          </div>
+         
+        <div class="col">
+
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control"  name="pass1" id="exampleInputPassword1">
+          
+          </div>
+
+          
+        <div class="col">
+          <label for="exampleInputPassword2" class="form-label">Password</label>
+          <input type="password" class="form-control" name="pass2" id="exampleInputPassword2">
+</div>        
+
+
+      </div>
+    <button type="submit" value="submit">Submit</button> 
+</form>
+
+
+
+
+{% endblock %}
+
+
+{% block js%}
+
+{% endblock %}
