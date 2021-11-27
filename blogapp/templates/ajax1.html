@@ -1,0 +1,69 @@
+<style>
+    @media screen and (max-width:500px) {
+            
+        .divpr{min-width: 95%;  }
+        #comment_show_id{width:100%; }
+
+      }
+</style>
+
+
+
+<form method="POST">
+{% for i in all_comment_obj %}
+<div  class="divpr" style="border:1.2px solid rgb(15, 77, 7); padding-left:4px;border-radius:4px; width:40%; margin-top:4px; margin-bottom:4px;
+ background-color: #61a546a3;color: #f8f8f8; width:40%; overflow:hidden; font-family:var(--font-1);">
+<h6 style=" color:rgb(12, 12, 12); margin-right:auto;" name="comment_text_id_name"  id="text_{{i.id}}" class="comment_text_id_name"><b>{{i.comment_created_by}}</b> </h6>
+<input type="hidden"  class="comment_id_name" name="comment_id_name"  id="comment_id_{{i.id}}" value="{{i.id}}">
+{% if request.user == i.comment_created_by  %}
+<input type="hidden" id="id_{{i.id}}"  value="id_{{i.id}}" >
+<input type="hidden" id='test'>
+<!--ANON USER CAN NOT MODIFY  COMMENT-->
+<input type="hidden"  class="comment_edit_input_id_name" id="newcomment_{{i.id}}" name="comment_edit_input_id_name" id="comment_edit_input_id" value="{{i.comment_text}}">
+<div   name="comment_edit_input_1new" onclick="comment_edit_ajax_func()" id="{{i.id}}" class="cart"  style="display:none;">Edit</div>
+<div id='cng'></div>
+{% endif %}
+<p class="m-2"  >{{autoescape}}{{i.comment_text|safe}}{{endescape}}
+      <h6 style="display: inline; color:rgb(248, 248, 248); max-width:98vw; word-wrap:break-word!important;"><b>{{i.comment_created_time|slice:":"}}</b></h6>
+      </p>
+</div>
+{% endfor %}
+</form>
+
+
+
+
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script>
+  
+    function comment_edit_ajax_func() {
+      
+        $(document).on('click', '.cart', function() { 
+            var idstr = this.id.toString();
+            document.getElementById('test').value=idstr; 
+        });
+            var test = document.getElementById('test').value;
+            var comment_create = document.getElementById(`text_`+test).innerText;
+            var new_comment = document.getElementById(`newcomment_`+test).value;
+            var comment_id = document.getElementById(`comment_id_`+test).value;
+           
+        $.ajax({
+            type: 'POST',
+            url: "{% url 'comment_edit_ajax1_path' %}",
+            data: {
+                'comment_create': comment_create,
+                'new_comment':new_comment , 
+                'comment_id': comment_id , 
+                'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+            },
+            success: function (result) {
+                $('#cng').html(result);
+               
+            }
+        });
+    }
+
+</script>
+
+
+      
