@@ -113,9 +113,9 @@ https://www.tooplate.com/view/2125-artxibition
 <div class="content-section col-md-6 col-md-offset-2 m-auto">
     <form method="POST"  style="border-top: 10px solid rgb(18, 156, 13); padding:10%;   margin-top:20px; margin-bottom:50px; border-radius:1%;background-color: rgb(255, 255, 254);">
         {% csrf_token %}
-        <h1 style="margin-bottom:15px; color:rgb(18, 156, 13); font-family:var(--font-1); text-align:center;" >LogIn</h1>
+        <h1 style="margin-bottom:15px; color:rgb(18, 156, 13); font-family:var(--font-1); text-align:center;" ><b>LogIn</b></h1>
     
-    
+        <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
     
     
     
@@ -144,7 +144,7 @@ https://www.tooplate.com/view/2125-artxibition
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 style="font-family: var(--font-1); font-weight:650; margin:auto;">  Log In  </h2>
+                    <h2 style="font-family: var(--font-1); font-weight:650; margin:auto;"> <b> Log In </b> </h2>
                    
                 </div>
             </div>
