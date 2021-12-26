@@ -1,0 +1,438 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Yash">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+    <title>Yash Tourister</title>
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-awesome.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/owl-carousel.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/tooplate-artxibition.css' %}">
+<!--
+
+Tooplate 2125 ArtXibition
+
+https://www.tooplate.com/view/2125-artxibition
+
+-->
+<style>
+    body{scroll-behavior: smooth;}
+</style>
+    </head>
+    
+    <body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    
+    <!-- ***** Pre HEader ***** -->
+    <div class="pre-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <span>Hey! The Show is Starting in 15 Days.</span>
+                    {% if contact %}
+                    Thanks For Contacting Us ... We Will Responde You
+                    {% endif %}
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <div class="text-button">
+                        <a href="{% url 'contact_path_blogapp' %}">Contact Us Now! <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="#" class="logo">
+                            <img src="https://vickyflipfloptravels.com/wp-content/uploads/2017/03/cropped-Vicky-Flip-Flop_logo-1-1.jpg" srcset="https://vickyflipfloptravels.com/wp-content/uploads/2017/03/cropped-Vicky-Flip-Flop_logo-1-1.jpg 1653w, https://vickyflipfloptravels.com/wp-content/uploads/2017/03/cropped-Vicky-Flip-Flop_logo-1-1-300x136.jpg 300w, https://vickyflipfloptravels.com/wp-content/uploads/2017/03/cropped-Vicky-Flip-Flop_logo-1-1-600x273.jpg 600w, https://vickyflipfloptravels.com/wp-content/uploads/2017/03/cropped-Vicky-Flip-Flop_logo-1-1-768x349.jpg 768w, https://vickyflipfloptravels.com/wp-content/uploads/2017/03/cropped-Vicky-Flip-Flop_logo-1-1-1536x698.jpg 1536w, https://vickyflipfloptravels.com/wp-content/uploads/2017/03/cropped-Vicky-Flip-Flop_logo-1-1-1440x654.jpg 1440w, https://vickyflipfloptravels.com/wp-content/uploads/2017/03/cropped-Vicky-Flip-Flop_logo-1-1-1200x545.jpg 1200w" sizes="(max-width: 1653px) 100vw, 1653px" class="size-full size-ratio-full wp-image-39989 header-logo-img ggnoads" alt="VickyFlipFlopTravels" data-pin-nopin="true" height="70" width="200">   </em></a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="#" class="active">Home</a></li>
+                            <li><a href="{% url 'about_path_blogapp' %}">About Us</a></li>
+                            <li><a href="{% url 'contact_path_blogapp' %}" >Contact Us</a></li> 
+                            <li><a href="{% url 'my_login_url' %}">LogIn</a></li> 
+                            <li><a href="{% url 'mysignup' %}">SignUp</a></li>
+                            {% if request.user.is_authenticated %} 
+                            <li><a href="{% url 'logout' %}">LogOut</a></li>
+                          {% endif %}
+                        </ul>        
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="main-banner">
+        <div class="counter-content">
+            <ul>
+                <li>Days<span id="days"></span></li>
+                <li>Hours<span id="hours"></span></li>
+                <li>Minutes<span id="minutes"></span></li>
+                <li>Seconds<span id="seconds"></span></li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="main-content">
+                        <div class="next-show">
+                            <i class="fa fa-arrow-up"></i>
+                            <span>Next Show</span>
+                        </div>
+                        <h6>Opening on Thursday, March 31st</h6>
+                        <h2>The Yash Vlog & Blog</h2>
+                        <div class="main-white-button">
+                            <a href="#linkss"><b>Vlogs </b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Main Banner Area End ***** -->
+
+    <!-- *** Owl Carousel Items ***-->
+    <div class="show-events-carousel">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="owl-show-events owl-carousel">
+                        {% for obj in all_obj %}
+                        <div class="item">
+                            <a href="/blog/{{obj.id}}"><img src="..{{obj.main_image.url}}" alt=""></a>
+                        </div>
+                        {% endfor %}
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- *** Amazing Venus ***-->
+    <div class="amazing-venues">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="left-content">
+                        <h4>Three Amazing Venues for events</h4>
+                        <p>ArtXibition Event Template is brought to you by Tooplate website and it included total 7 HTML pages. 
+                        These are <a href="">Homepage</a>, <a href="">About</a>, 
+                        <a href="">Rent a venue</a>, <a href="">shows &amp; events</a>, 
+                        <a href="">event details</a>, <a href="">tickets</a>, and <a href="">ticket details</a>. 
+                        You can feel free to modify any page as you like. If you have any question, please visit our <a href="https://www.tooplate.com/contact" target="_blank">Contact page</a>.</p>
+                        <br>
+                        <p>You can use this event template for your commercial or business website. You are not permitted to redistribute this template ZIP file on any template download website. If you need the latest HTML templates, you may visit <a href="https://www.toocss.com/" target="_blank">Too CSS</a> website that features a great collection of templates in different categories.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="right-content">
+                        <h5><i class="fa fa-map-marker"></i> Visit Us</h5>
+                        <span>A 55 Rajan Vihar, <br>New Delhi 110059<br>India</span>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- *** Map ***-->
+    <div class="map-image">
+        <img src="{% static 'assets/images/map-image.jpg' %}" alt="Maps of 3 Venues">
+    </div>
+
+
+    <!-- *** Venues & Tickets ***-->
+    <div class="venue-tickets">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading">
+                        <h2>Our Latest Vlog & Blog</h2>
+                    </div>
+                </div>
+
+                {% for obj in all_obj %}
+                <div class="col-lg-4 my-4">
+                    <div class="event-item">
+                        <div class="thumb">
+                            <a href=""><img src="..{{obj.main_image.url}}" alt=""></a>
+                        </div>
+                        <div class="down-content">
+                            
+                          <!--  <a href=""><h4>{{obj.pera_1|slice:":33"}}</h4></a>-->
+                            <a href=""><h4>Radio City Musical Hall</h4></a>
+                            <ul>
+                                <li><i class="fa fa-clock-o"></i>{{obj.created_time}}</li>
+                                <li><i class="fa fa-map-marker"></i> {{obj.main_title|slice:":33"}}</li>
+                                <a href="/blog/{{obj.id}}" class="stretched-link" style="text-decoration: none; color:#073cce; font-weight: 670; font-family: var(--font-1);">Continue reading </a>
+    
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+               
+                
+               
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="also-like">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 " id="linkss">
+                    <h2>You Might Also Like...</h2>
+                </div>
+
+                {% for obj in all_obj %}
+                <div class="col-lg-4 my-3">
+                    <div class="like-item">
+                        <div class="thumb">
+                            <a href=""><img src="..{{obj.main_image.url}}" alt=""></a>
+                            <div class="icons">
+                                <ul>
+                                    <li><a href=""><i class="fa fa-arrow-right"></i></a></li>
+                                    <li><a href=""><i class="fa fa-ticket"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="down-content">
+                            <span>{{obj.created_time}}</span>
+                            <a href="event-details.html"><h4>{{obj.main_title}}</h4></a>
+                            <br>
+                            <a href="/blog/{{obj.id}}" class="stretched-link" style="text-decoration: none; color:#073cce; font-weight: 670; font-family: var(--font-1);">Continue reading </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            <!--    <div class="col-lg-4">
+                    <div class="like-item">
+                        <div class="thumb">
+                            <a href="event-details.html"><img src="{% static 'assets/images/like-01.jpg' %}" alt=""></a>
+                            <div class="icons">
+                                <ul>
+                                    <li><a href="event-details.html"><i class="fa fa-arrow-right"></i></a></li>
+                                    <li><a href="ticket-details.html"><i class="fa fa-ticket"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="down-content">
+                            <span>Sept 10 to 14, 2021</span>
+                            <a href="event-details.html"><h4>Wonder Land Music and Arts Festival</h4></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="like-item">
+                        <div class="thumb">
+                            <a href="event-details.html"><img src="{% static 'assets/images/like-02.jpg' %}" alt=""></a>
+                            <div class="icons">
+                                <ul>
+                                    <li><a href="event-details.html"><i class="fa fa-arrow-right"></i></a></li>
+                                    <li><a href="ticket-details.html"><i class="fa fa-ticket"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="down-content">
+                            <span>Oct 11 to 16, 2021</span>
+                            <a href="event-details.html"><h4>Big Water Splashing Festival</h4></a>
+                        </div>
+                    </div>
+                </div>
+                -->
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <br>
+<br><br>
+
+    <!-- *** Coming Events ***-->
+    
+    <!-- *** Subscribe *** -->
+    <div class="subscribe">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h4>Subscribe Our Newsletter:</h4>
+                </div>
+                <div class="col-lg-8">
+                    <form id="subscribe" action="" method="get">
+                        <div class="row">
+                          <div class="col-lg-9">
+                            <fieldset>
+                              <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email Address" required="">
+                            </fieldset>
+                          </div>
+                          <div class="col-lg-3">
+                            <fieldset>
+                              <button type="submit" id="form-submit" class="main-dark-button">Submit</button>
+                            </fieldset>
+                          </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- *** Footer *** -->
+    <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="address">
+                            <h4>Yashthakur3215@gmail.com</h4>
+                            <span>A 55 Rajan Vihar <br>New Delhi 110059<br>India</span>
+                         </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="links">
+                            <h4>Useful Links</h4>
+                            <ul>
+                                <li><a href="/">Info</a></li>
+                                <li><a href="{% url 'contact_path_blogapp' %}">Contact</a></li>
+                                
+                                <li><a href="/">Videos</a></li>
+                                <li><a href="{% url 'my_login_url' %}">LogIn</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="hours">
+                            <h4>Open Hours</h4>
+                            <ul>
+                                <li>Mon to Fri: 10:00 AM to 8:00 PM</li>
+                                <li>Sat - Sun: 11:00 AM to 4:00 PM</li>
+                                <li>Holidays: Closed</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="under-footer">
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-6">
+                                    <p>São Conrado, Rio de Janeiro</p>
+                                </div>
+                                <div class="col-lg-6 col-sm-6">
+                                    <p class="copyright">Copyright 2021 Yash Blog & Vlog
+                        
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="sub-footer">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="logo">     <em> Yash </em> Blog & Vlog</div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="menu">
+                                        <ul class="nav">
+                                            <li><a href="#" class="active">Home</a></li>
+                                            <li><a href="{% url 'about_path_blogapp' %}">About Us</a></li>
+                                            {% if request.user.is_authenticated %} 
+                                            <li><a href="{% url 'logout' %}">LogOut</a></li> 
+                                            {% else %}
+                                            <li><a href="{% url 'my_login_url' %}">LogIn</a></li> 
+                                            <li><a href="{% url 'mysignup' %}">SignUp</a></li> 
+                                          {% endif %}
+                                           
+                                        </ul>        
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="social-links">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
+      
+    <!-- jQuery -->
+    <script src="{% static 'assets/js/jquery-2.1.0.min.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'assets/js/popper.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugins -->
+    <script src="{% static 'assets/js/scrollreveal.min.js' %}"></script>
+    <script src="{% static 'assets/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'assets/js/imgfix.min.js' %}"></script> 
+    <script src="{% static 'assets/js/mixitup.js' %}"></script> 
+    <script src="{% static 'assets/js/accordions.js' %}"></script>
+    <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+    
+    <!-- Global Init -->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+
+  </body>
+</html>

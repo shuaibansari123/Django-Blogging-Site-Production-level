@@ -1,0 +1,225 @@
+<div style="background-color: red;">{{number_like}}</div>
+{%extends 'basic.html'%}
+
+{% block title %}{% endblock %}
+
+{% block css %}<Style>
+    @media screen and (max-width:500px) {
+            
+        .divpr{min-width: 95%;  background-color:rgb(194, 173, 173);}
+        #comment_show_id{width:100%; background-color:rgb(88, 15, 15);}
+
+      }
+      
+</Style>{% endblock %}
+
+
+{% block body %}
+
+    <header class="blog-header py-3" style="background-color: #202120;">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-4 pt-1">
+            <a class="link-secondary px-3" href="/" style="text-decoration: none;  font-family: var(--font-1); color: white;">Subscribe</a>
+          </div>
+          <div class="col-4 text-center">
+            <a class="blog-header-logo text-dark" href="/" style="text-decoration: none;  font-family: var(--font-1); color: white!important;">Large</a>
+          </div>
+          <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="link-secondary" href="/" style="text-decoration: none; color:white;" aria-label="Search">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>
+            </a>
+            <a class="btn btn-sm btn-outline-secondary" href="/" style="text-decoration: none; font-family: var(--font-1); color: white;">Sign </a>
+          </div>
+        </div>
+      </header>
+   
+
+      <div class="container">
+
+<div class="nav-scroller py-1 mb-2" style="">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 link-secondary" href="#" style="text-decoration: none; font-family: var(--font-1); font-weight: 600; color:black; ">World</a>
+      <a class="p-2 link-secondary" href="#"  style="text-decoration: none; font-family: var(--font-1); font-weight: 600; color:black; ">U.S.</a>
+      <a class="p-2 link-secondary" href="#"  style="text-decoration: none; font-family: var(--font-1); font-weight: 600; color:black; ">Technology</a>
+      <a class="p-2 link-secondary" href="#"  style="text-decoration: none; font-family: var(--font-1); font-weight: 600; color:black; ">Design</a>
+      <a class="p-2 link-secondary" href="#"  style="text-decoration: none; font-family: var(--font-1); font-weight: 600; color:black;">Travel</a>
+    </nav>
+  </div>
+</div>
+
+</div>
+<div class="container">
+  
+    <div class="row mt-4">
+        <div class="col-md-8 blog-main">
+           <div class="row">
+               <div class="col-md-4">
+                   
+                <video width="100%" height="auto" controls>
+                    <source src="{{ obj.video_blog.url }}" type="video/mp4">
+               </video>
+           
+        </div>
+        </div>
+  
+           <h3 class="font-italic" style="color:#2c2a2c;">
+            {{obj.create_by}} 
+        </h3>
+            <div class="blog-post" >
+                <p class="blog-post-meta">{{obj.created_time}} <a href="#" style="font-style:italic;">{{obj.create_by}}</a></p>
+
+              
+                
+
+             
+                <p>{{autoescape}}{{obj.pera_1|safe}} {{endescape}}</p>
+                <div class="mt-2 mb-4 fb-like " data-href="http://127.0.0.1:8000/blog/blogpost/{{post.post_id}}" data-layout="standard" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div><br>
+
+             
+                <div class="fb-comments" data-href="http://127.0.0.1:8000/blog/blogpost/{{post.post_id}}" data-numposts="5"></div>
+
+
+            </div><!-- /.blog-post -->
+
+
+
+
+        </div><!-- /.blog-main -->
+
+        <aside class="col-md-4 blog-sidebar" >
+            <div class="p-4 mb-3  rounded"  style="background-color:#656769; margin-top:20px;">
+                <h4 class="font-italic" style="color:#f8f8f8;" >About</h4>
+                <p class="mb-0" style="color:#fafcf8; ">My Awesome Cart <em>started out as a small project and is now</em> the fastest growing e-commerce stores of all times in india and abroad.</p>
+                <div class="my-3 fb-share-button" data-href="http://127.0.0.1:8000/blog/blogpost/{{post.post_id}}" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A8000%2Fblog%2Fblogpost%2F4&src=sdkpreparse" class="fb-xfbml-parse-ignore" style="text-decoration: none; color:white;">Share</a></div>
+            </div>
+
+
+
+            <div class="p-4" style="background-color:#656769;">
+                <h4 class="font-italic" style="color:#f4f7f3;">Elsewhere</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#" style="text-decoration: none; color:white;">GitHub</a></li>
+                    <li><a href="#" style="text-decoration: none; color:white;">Twitter</a></li>
+                    <li><a href="#" style="text-decoration: none; color:white;">Facebook</a></li>
+                </ol>
+            </div>
+        </aside><!-- /.blog-sidebar -->
+
+    </div>
+</div>
+<div class="container " style="margin-top:10px;">
+{% load static %}
+<form method="POST">
+    {% csrf_token %}
+   
+{% if not_right_like %}
+
+<button class="btn btn-primary" style="font-family: var(--font-1);"><a href="{% url 'mysignup' %} " style="color:white; font-family:var(--font-1);">SignUp For Like</a></button>
+{% else %}
+
+<div id='like'  onclick="like_ajax()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="color: rgb(32, 117, 29); width:auto; height:70px; " class="bi bi-hand-thumbs-up-fill" viewBox="0 0 26 26">
+    <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"/>
+  </svg>
+ <b> <div id='like-count' style="   font-size:1.5em;font-family:var(--font-1);" >{{like_count}}</div></b>
+</div>
+{% endif %}
+
+
+   
+<input   id="blog_number"  type="hidden"  value="{{obj.id}}">
+</form>
+</div>
+
+
+
+
+
+<div class="container">
+    <form method="POST" >
+        {% csrf_token %}
+        
+<input type="hidden" name="obj_name"  value="{{obj.id}}" id="obj_id">
+<div class="row">
+<div class="col-md-4 my-2">
+    <label for="exampleFormControlTextarea1" class="form-label"><b style="font-family:var(--font-1); font-size:1.5em;">Comment</b></label>
+    <textarea class="form-control" name="comment_input" id="comment_input_id" rows="3" placeholder="Type Your Comment here..." ></textarea>
+  </div> 
+</div>
+<div  onclick="ajax1_func()" name="ajax_button" id="ajax_button_id" style=" font-family:var(--font-1); margin-left:9px; margin-bottom:7px;" class="btn btn-success">Post </div>
+ 
+<div name="comment_show" id="comment_show_id" class="container-fluid"></div>
+</form>
+</div>
+
+
+
+
+
+
+{% endblock %}
+{% block js%}
+
+<script>
+
+function ajax1_func() {
+    var input1 = document.getElementById('comment_input_id').value;
+    var obj = document.getElementById('obj_id').value;
+    console.log('java------print--ajax')
+    $.ajax({
+        type: 'POST',
+        url: "{% url 'comment_ajax1' %}",
+        data: {
+            'input1': input1,
+            'obj':obj , 
+            'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+        },
+        success: function (result) {
+            $('#comment_show_id').html(result);
+            document.getElementById('comment_input_id').value="";
+        }
+    });
+}
+
+
+
+function like_ajax(){
+    var likes = document.getElementById("like-count").innerText;
+    var like_button = document.getElementById('like');
+    var blog_number = document.getElementById('blog_number').value;
+   console.log(blog_number)
+    $.ajax({
+        type: 'POST',
+        url: "{% url 'like_url' %}" ,  
+        data: {
+            'likes':likes ,
+            'blog_number':blog_number  ,  
+            'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+        },
+
+        
+        success: function (result) {
+            $('#like-count').html(result);
+
+        },
+        error: function(jqXHR, status, err){
+            alert(jqXHR.responseText);
+        }
+    });
+
+
+  
+}
+
+
+
+
+
+
+</script>
+<script>
+document.getElementById('ajax_button_id').click()
+
+</script>
+
+
+{% endblock %}
