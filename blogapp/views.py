@@ -253,10 +253,13 @@ def MyLogin(request):
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
+            print('not note-------')
             form = login(request, user)
             messages.success(request, f' wecome {username} !!')
             return redirect('/')
         else:
+            print('not exists-------')
+           
             messages.info(request, f'account done not exist plz sign in')
     form = AuthenticationForm()
     return render(request, 'user/register2.html', {'form': form, 'title': 'log in'})

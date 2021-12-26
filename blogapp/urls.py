@@ -30,6 +30,8 @@ urlpatterns = [
     #path("nocobot" , views.index_view , name="nocobot_url") ,
 
 
+# SOCIAL AUTH
+    path('oauth/', include('social_django.urls', namespace='social') , 
 
 
 
