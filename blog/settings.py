@@ -37,16 +37,7 @@ INSTALLED_APPS = [
     'ckeditor' ,
 
     'crispy_forms', 
-
-    
-    # "django.contrib.sites",  # new
-    # 3rd party
-    # "allauth", # new
-    # "allauth.account", # new
-    # "allauth.socialaccount", # new
-    # social providers
-    # "allauth.socialaccount.providers.github", # new
-    # "allauth.socialaccount.providers.twitter", 
+    #'social_django', 
     
     'blogapp',
     'django.contrib.admin',
@@ -70,7 +61,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     # SOCIAL - AUTHENTICATION
-    'social_django.middleware.SocialAuthExceptionMiddleware', 
+    #'social_django.middleware.SocialAuthExceptionMiddleware', 
 ]
 
 ROOT_URLCONF = 'blog.urls'
@@ -88,24 +79,25 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
 
                 #SOCIAL AUTH
-                'social_django.context_processors.backends', 
-                'social_django.context_processors.login_redirect',
+                #'social_django.context_processors.backends', 
+                #'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
 '''
 #SOCIAL-AUTH
-AUTHENTICATION_BACKENDS = (
+#AUTHENTICATION_BACKENDS = (
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.github.GithubOAuth2',
 
     'django.contrib.auth.backends.ModelBackend',
 )
+
+
+
 '''
-
-
 
 AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
@@ -210,7 +202,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 #YASH ID
-EMAIL_HOST_USER = 'shuaibansari5055@gmail.com'
+EMAIL_HOST_USER = 'shuaibansari4044@gmail.com'
 EMAIL_HOST_PASSWORD = 'sgf12345678.'
 DEFAULT_FROM_EMAIL = '<h1>anything you want</h1>'
 
